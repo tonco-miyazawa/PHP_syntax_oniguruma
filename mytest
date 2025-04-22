@@ -1,0 +1,15 @@
+<?php
+mb_regex_encoding("utf8");
+$string = 'abcdefghij';
+$pattern = 'abc (*SKIP) (*MISMATCH) | (.) (.) (.)';
+
+if ( mb_check_encoding($string, "utf8") ) {
+  echo "mb_check_encoding: SUCCESS"."\n";
+} else { 
+  echo "mb_check_encoding: FAIL"."\n";
+}
+
+mb_regex_set_options('xo');    // 'o' means 'ONIG_SYNTAX_ONIGURUMA'.
+mb_ereg($pattern, $string, $match);
+var_dump($match);
+?>
