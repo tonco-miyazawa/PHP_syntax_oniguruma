@@ -1,0 +1,37 @@
+--- php_mbregex.c	2025-04-09 04:55:31.000000000 +0900
++++ php_mbregex_fixed.c	2025-04-22 18:06:00.273941887 +0900
+@@ -112,7 +112,14 @@
+ /* {{{ PHP_MINIT_FUNCTION(mb_regex) */
+ PHP_MINIT_FUNCTION(mb_regex)
+ {
+-	onig_init();
++ 	int r;
++ 	OnigEncoding encs[3];
++ 	encs[0] = ONIG_ENCODING_UTF8;
++ 	encs[1] = ONIG_ENCODING_UTF16_BE;
++ 	encs[2] = ONIG_ENCODING_UTF16_LE;
++ 
++ 	r = onig_initialize(use_encs, sizeof(use_encs)/sizeof(use_encs[0]));
++ 	if (r != ONIG_NORMAL) return FAILURE;
+ 
+ 	snprintf(php_mb_oniguruma_version, sizeof(php_mb_oniguruma_version), "%d.%d.%d",
+ 		ONIGURUMA_VERSION_MAJOR, ONIGURUMA_VERSION_MINOR, ONIGURUMA_VERSION_TEENY);
+@@ -552,6 +559,8 @@
+ 
+ 	if (syntax == ONIG_SYNTAX_JAVA) {
+ 		c = 'j';
++ 	} else if (syntax == ONIG_SYNTAX_ONIGURUMA) {
++ 		c = 'o';
+ 	} else if (syntax == ONIG_SYNTAX_GNU_REGEX) {
+ 		c = 'u';
+ 	} else if (syntax == ONIG_SYNTAX_GREP) {
+@@ -650,6 +659,9 @@
+ 				case 'd':
+ 					*syntax = ONIG_SYNTAX_POSIX_EXTENDED;
+ 					break;
++				case 'o':
++					*syntax = ONIG_SYNTAX_ONIGURUMA;
++					break;
+ 				default:
+ 					zend_value_error("Option \"%c\" is not supported", c);
+ 					return false;
