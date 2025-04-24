@@ -1,15 +1,35 @@
 <?php
-mb_regex_encoding("utf8");
-$string = 'abcdefghij';
-$pattern = 'abc (*SKIP) (*MISMATCH) | (.) (.) (.)';
+mb_language('neutral');
+mb_internal_encoding('UTF-8');
+mb_regex_encoding('UTF-8');
 
-if ( mb_check_encoding($string, "utf8") ) {
-  echo "mb_check_encoding: SUCCESS"."\n";
-} else { 
-  echo "mb_check_encoding: FAIL"."\n";
-}
+$str = 'abcdefghij';
+$reg = 'abc (*SKIP) (*MISMATCH) | (.) (.) (.)';    // (*SKIP) is available from Oniguruma 6.9.10 .
+
+// $str = "\xff";    // Invalid standalone encoded byte test
+// $reg = '(??)';    // Pattern error test
 
 mb_regex_set_options('xo');    // 'o' means 'ONIG_SYNTAX_ONIGURUMA'.
-mb_ereg($pattern, $string, $match);
-var_dump($match);
+
+if ( mb_check_encoding($str, "UTF-8") ) {
+  echo "mb_check_encoding: ok!"."\n";
+} else { 
+  echo "mb_check_encoding: \$str is broken!"."\n";
+}
+
+mb_ereg_search_init($str, $reg);
+
+if ($arr = mb_ereg_search_pos()) {
+  echo "0: (".$arr[0]."-".($arr[0]+$arr[1]).")\n";
+} else {
+  echo "search fail."."\n";
+}
+
+mb_ereg_search_init($str, $reg);
+
+if ($arr = mb_ereg_search_regs()) {
+  for ($i = 0; $i < count($arr); $i++) {
+    echo '('.$i.'): "'.$arr[$i].'"'."\n";
+  }
+}
 ?>
