@@ -1,6 +1,6 @@
 # How to test Oniguruma 6.9.10 with PHP 8.4.6
 
-First, install [Oniguruma 6.9.10](https://github.com/kkos/oniguruma/releases/tag/v6.9.10) or the [Oniguruma's current master branch](https://github.com/kkos/oniguruma/archive/refs/heads/master.zip) etc.. See [Oniguruma: Install](https://github.com/kkos/oniguruma?tab=readme-ov-file#install) .
+First, install [Oniguruma 6.9.10](https://github.com/kkos/oniguruma/releases/tag/v6.9.10) or [the Oniguruma's current master branch](https://github.com/kkos/oniguruma/archive/refs/heads/master.zip) etc.. See [Oniguruma: Install](https://github.com/kkos/oniguruma?tab=readme-ov-file#install) .
   
   
 Apply [add_option_o.patch](https://github.com/tonco-miyazawa/PHP_syntax_oniguruma/blob/main/add_option_o.patch) to [php-8.4.6/ext/mbstring/php_mbregex.c](https://github.com/php/php-src/blob/php-8.4.6/ext/mbstring/php_mbregex.c) .  
@@ -33,8 +33,8 @@ Run the test file [mytest](https://github.com/tonco-miyazawa/PHP_syntax_onigurum
   
 example:  
   
-Old library path: `/usr/lib/x86_64-linux-gnu/libonig.so.5.4.0`  
-New library path: `/usr/local/lib/libonig.so.5.4.0`  
+Path of Oniguruma's old library: `/usr/lib/x86_64-linux-gnu/libonig.so.5.4.0`  
+Path of Oniguruma's new library: `/usr/local/lib/libonig.so.5.4.0`  
   
 And update Oniguruma library cache files.  
 `$ sudo ldconfig`  
