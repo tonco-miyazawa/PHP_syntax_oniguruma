@@ -53,7 +53,7 @@ Oniguruma (Owner: K.Kosako) [https://github.com/kkos/oniguruma](https://github.c
 [mb_ereg_search_regs()](https://www.php.net/manual/en/function.mb-ereg-search-regs.php)  
 [mb_regex_set_options()](https://www.php.net/manual/en/function.mb-regex-set-options.php)  
 [mb_check_encoding()](https://www.php.net/manual/en/function.mb-check-encoding.php)  
-[Supported Character Encodings](https://www.php.net/manual/en/mbstring.supported-encodings.php)  
+[PHP: Supported Character Encodings](https://www.php.net/manual/en/mbstring.supported-encodings.php)  
 
 -------------------------
 
