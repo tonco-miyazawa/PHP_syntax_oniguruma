@@ -23,6 +23,7 @@ if ($arr = mb_ereg_search_pos()) {
   echo "0: (".$arr[0]."-".($arr[0]+$arr[1]).")\n";
 } else {
   echo "search fail."."\n";
+  exit();
 }
 
 mb_ereg_search_init($str, $reg);
