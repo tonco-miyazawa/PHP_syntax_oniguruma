@@ -33,8 +33,8 @@ Run the test file [mytest](https://github.com/tonco-miyazawa/PHP_syntax_onigurum
   
 example:  
   
-Path of Oniguruma's old library: `/usr/lib/x86_64-linux-gnu/libonig.so.5.4.0`  
-Path of Oniguruma's new library: `/usr/local/lib/libonig.so.5.4.0`  
+Path of Oniguruma old library file: `/usr/lib/x86_64-linux-gnu/libonig.so.5.4.0`  
+Path of Oniguruma new library file: `/usr/local/lib/libonig.so.5.4.0`  
   
 And update Oniguruma library cache files.  
 `$ sudo ldconfig`  
@@ -46,8 +46,9 @@ Oniguruma (Owner: K.Kosako) [https://github.com/kkos/oniguruma](https://github.c
 [PHP: github](https://github.com/php/php-src)  
 [PHP: web](https://www.php.net/)
 
-[mb_ereg()](https://www.php.net/manual/en/function.mb-ereg.php)  
+[(mb_ereg()](https://www.php.net/manual/en/function.mb-ereg.php)  
 [mb_ereg_match()](https://www.php.net/manual/en/function.mb-ereg-match.php)  
+[mb_ereg_search_init()](https://www.php.net/manual/en/function.mb-ereg-search-init.php)  
 [mb_ereg_search_pos()](https://www.php.net/manual/en/function.mb-ereg-search-pos.php)  
 [mb_ereg_search_regs()](https://www.php.net/manual/en/function.mb-ereg-search-regs.php)  
 [mb_regex_set_options()](https://www.php.net/manual/en/function.mb-regex-set-options.php)  
