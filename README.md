@@ -46,7 +46,7 @@ Oniguruma (Owner: K.Kosako) [https://github.com/kkos/oniguruma](https://github.c
 [PHP: github](https://github.com/php/php-src)  
 [PHP: web](https://www.php.net/)
 
-[(mb_ereg()](https://www.php.net/manual/en/function.mb-ereg.php)  
+[mb_ereg()](https://www.php.net/manual/en/function.mb-ereg.php)  
 [mb_ereg_match()](https://www.php.net/manual/en/function.mb-ereg-match.php)  
 [mb_ereg_search_init()](https://www.php.net/manual/en/function.mb-ereg-search-init.php)  
 [mb_ereg_search_pos()](https://www.php.net/manual/en/function.mb-ereg-search-pos.php)  
